@@ -67,6 +67,7 @@ router.put("/voter/:id", (req, res) => {
   const params = [req.body.email, req.params.id];
 
   db.query(sql, params, (err, result) => {
+    console.log(result.affectedRows);
     if (err) {
       res.status(400).json({ error: err.message });
     } else if (!result.affectedRows) {
